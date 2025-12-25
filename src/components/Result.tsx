@@ -17,6 +17,7 @@ const Result: React.FC<ResultProps> = ({ result, onRestart }) => {
   const resultRef = useRef<HTMLDivElement>(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
   const shareTitle = `MBTI: ${result.type} - ${result.title[locale]}`;
@@ -104,11 +105,41 @@ const Result: React.FC<ResultProps> = ({ result, onRestart }) => {
   };
 
   const copyToClipboard = async () => {
+    const textToCopy = `${shareText} ${shareUrl}`;
+    
+    const handleSuccess = () => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    };
+
+    // 优先使用 navigator.clipboard
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        handleSuccess();
+        return;
+      } catch (err) {
+        console.error('Clipboard API failed, falling back...', err);
+      }
+    }
+
+    // 兜底方案：使用传统的 execCommand('copy')
     try {
-      await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
-      alert(locale === 'zh' ? '链接已复制到剪贴板！' : 'Link copied to clipboard!');
+      const textArea = document.createElement('textarea');
+      textArea.value = textToCopy;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      textArea.style.top = '0';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      if (successful) {
+        handleSuccess();
+      }
     } catch (err) {
-      console.error('Failed to copy link:', err);
+      console.error('Fallback copy failed:', err);
     }
   };
 
@@ -282,11 +313,26 @@ const Result: React.FC<ResultProps> = ({ result, onRestart }) => {
                   onClick={copyToClipboard}
                   className="flex flex-col items-center gap-2 group"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-gray-100 flex items-center justify-center transition-transform group-hover:scale-110 text-gray-600">
-                    <Link2 size={24} />
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all group-hover:scale-110 ${copied ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-600'}`}>
+                    {copied ? (
+                      <motion.svg 
+                        initial={{ scale: 0 }} 
+                        animate={{ scale: 1 }} 
+                        className="w-6 h-6" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </motion.svg>
+                    ) : (
+                      <Link2 size={24} />
+                    )}
                   </div>
-                  <span className="text-xs font-medium text-gray-600">
-                    {locale === 'zh' ? '复制链接' : 'Copy Link'}
+                  <span className={`text-xs font-medium transition-colors ${copied ? 'text-green-600' : 'text-gray-600'}`}>
+                    {copied 
+                      ? (locale === 'zh' ? '已复制' : 'Copied!') 
+                      : (locale === 'zh' ? '复制链接' : 'Copy Link')}
                   </span>
                 </button>
               </div>
