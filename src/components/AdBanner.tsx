@@ -18,7 +18,7 @@ interface AdBannerProps {
  */
 const AdBanner: React.FC<AdBannerProps> = ({
   adClient = "ca-pub-8108389486087485", // 替换为真实的 Client ID
-  adSlot = "8108389486087485",               // 替换为真实的 Slot ID
+  adSlot = "6541825133",               // 替换为真实的 Slot ID
   format = 'auto',
   responsive = true,
   className = "",
