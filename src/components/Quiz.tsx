@@ -41,17 +41,27 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
     return currentIds.every((id) => answers.some((a) => a.questionId === id));
   };
 
+  const scrollToTop = () => {
+    // 延迟一小会儿，等待 AnimatePresence 的退出动画开始
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
+
   const nextPage = () => {
     if (currentPage < totalPages - 1) {
       setCurrentPage(currentPage + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollToTop();
     }
   };
 
   const prevPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollToTop();
     }
   };
 
