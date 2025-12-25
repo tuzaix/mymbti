@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Quiz from '@/components/Quiz';
 import Result from '@/components/Result';
+import AdBanner from '@/components/AdBanner';
 import { Answer, PersonalityResult } from '@/types';
 import { useScoring } from '@/hooks/useScoring';
 import { personalityResults } from '@/data/results';
@@ -134,6 +135,8 @@ export default function Home() {
               >
                 {t.startTest}
               </button>
+
+              <AdBanner adSlot="intro-ad-slot" className="mt-12" />
               
               <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
@@ -173,6 +176,10 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4">
+        <AdBanner adSlot="footer-ad-slot" />
       </div>
 
       {/* Footer */}

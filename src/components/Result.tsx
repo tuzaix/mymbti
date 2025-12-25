@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RotateCcw, Share2, Download, Loader2, X, Link2 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { toPng } from 'html-to-image';
+import AdBanner from './AdBanner';
 
 interface ResultProps {
   result: PersonalityResult;
@@ -171,6 +172,7 @@ const Result: React.FC<ResultProps> = ({ result, onRestart }) => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      <AdBanner adSlot="result-top-ad" className="mb-8" />
       <div ref={resultRef} className="bg-white p-4 md:p-8 rounded-3xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -244,6 +246,8 @@ const Result: React.FC<ResultProps> = ({ result, onRestart }) => {
           {window.location.origin}/my-mbti
         </div>
       </div>
+
+      <AdBanner adSlot="result-bottom-ad" className="mt-8" />
 
       <div className="flex flex-wrap justify-center gap-4 border-t pt-12">
         <button

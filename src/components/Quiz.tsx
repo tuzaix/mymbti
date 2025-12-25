@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { questions } from '@/data/questions';
 import { Answer } from '@/types';
 import QuestionCard from './QuestionCard';
+import AdBanner from './AdBanner';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Send } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -100,6 +101,8 @@ const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
               onChange={(val) => handleAnswer(q.id, val)}
             />
           ))}
+
+          <AdBanner adSlot="quiz-bottom-ad" className="mt-8 mb-4" />
         </motion.div>
       </AnimatePresence>
 

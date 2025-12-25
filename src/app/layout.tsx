@@ -44,6 +44,13 @@ export default function RootLayout({
             gtag('config', 'G-N2MKT1E8ED');
           `}
         </Script>
+        {/* Google AdSense - 替换 ca-pub-XXXXXXXXXXXXXXXX 为真实的 ID */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
       </head>
       <body className="antialiased font-sans">
         <LanguageProvider>
