@@ -19,9 +19,9 @@ npm run build
 
 echo "重启 PM2 服务..."
 # 5. 重启 PM2 中的服务
-# 如果服务还没启动过，可以使用: pm2 start npm --name "mbti-app" -- start
+# 如果服务还没启动过，可以使用: pm2 start npm --name "mbti-test" -- start
 # 如果已经启动，直接 restart 即可
-pm2 restart mbti-app
+pm2 restart mbti-test
 
 echo "服务重启完成！"
 pm2 status
