@@ -17,8 +17,8 @@ interface AdBannerProps {
  * 开发环境下会显示一个占位方块以便调试布局。
  */
 const AdBanner: React.FC<AdBannerProps> = ({
-  adClient = "ca-pub-XXXXXXXXXXXXXXXX", // 替换为真实的 Client ID
-  adSlot = "XXXXXXXXXX",               // 替换为真实的 Slot ID
+  adClient = "ca-pub-8108389486087485", // 替换为真实的 Client ID
+  adSlot = "8108389486087485",               // 替换为真实的 Slot ID
   format = 'auto',
   responsive = true,
   className = "",
