@@ -34,7 +34,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
   }, []);
 
   // 如果是开发环境或者没有配置真实的 ID，显示占位符
-  const isPlaceholder = adClient.includes('XXXX') || process.env.NODE_ENV === 'development';
+  const isPlaceholder = adClient.includes('8108389486087485') || process.env.NODE_ENV === 'development';
 
   return (
     <div className={`ad-container my-8 mx-auto text-center overflow-hidden ${className}`}>
