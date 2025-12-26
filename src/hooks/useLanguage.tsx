@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { locales, LocaleType, TranslationType } from '@/data/locales';
 
 interface LanguageContextType {
@@ -44,24 +44,24 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
     // 检测系统语言
     const systemLang = navigator.language.split('-')[0] as LocaleType;
-    if (locales[systemLang]) {
-      setLocaleState(systemLang);
+    if (locales[systemLang as LocaleType]) {
+      setLocaleState(systemLang as LocaleType);
     } else {
       setLocaleState('zh');
     }
   }, []);
 
-  const setLocale = (newLocale: LocaleType) => {
+  const setLocale = useCallback((newLocale: LocaleType) => {
     setLocaleState(newLocale);
     localStorage.setItem('mbti_locale', newLocale);
-  };
+  }, []);
 
-  const value = {
+  const value = useMemo(() => ({
     locale,
-    t: locales[locale],
+    t: locales[locale] as TranslationType,
     setLocale,
     supportedLanguages,
-  };
+  }), [locale, setLocale]);
 
   return (
     <LanguageContext.Provider value={value}>
