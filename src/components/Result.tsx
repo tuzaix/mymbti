@@ -243,7 +243,7 @@ const Result: React.FC<ResultProps> = ({ result, onRestart }) => {
         </div>
         
         <div className="hidden show-on-export mt-12 pt-8 border-t text-center text-gray-400 text-sm">
-          {window.location.origin}/my-mbti
+          {window.location.origin}
         </div>
       </div>
 

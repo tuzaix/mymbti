@@ -47,7 +47,8 @@ pm2 startup
 
 ## 4. Nginx 配置
 
-这是部署的关键步骤。我们需要配置 Nginx 来处理请求转发。
+将域名指向服务器，并配置 Nginx。
+注意：现在应用部署在根路径 `/`。
 
 ### 编辑配置文件
 创建一个新的 Nginx 配置文件：
@@ -57,37 +58,22 @@ pm2 startup
 ```nginx
 server {
     listen 80;
-    listen 443;
-    server_name _; # 替换为你的域名或保持 _ 以匹配 IP 访问
+    server_name yourdomain.com; # 替换为你的域名
 
-    # 1. 直接访问 IP 或域名时返回指定字符串
-    location = / {
-        default_type text/plain;
-        return 200 'i love you baby!';
-    }
+    # 根路径返回文本 (可选)
+    # location = / {
+    #    return 200 'i love you baby!';
+    #    add_header Content-Type text/plain;
+    # }
 
-    # 2. 访问 /my-mbti 路径时转发到 Next.js 应用
-    location /my-mbti {
-        proxy_pass http://127.0.0.1:3000; # 对应 PM2 启动的默认端口
+    # 转发所有请求到 Next.js 应用
+    location / {
+        proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
-        
-        # 传递真实客户端信息
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        
-        # 确保重定向时不会丢失路径前缀
-        proxy_redirect off;
-    }
-
-    # 3. 处理 Next.js 静态资源 (可选，basePath 通常会自动处理)
-    # 如果发现样式丢失，可以确保 _next 路径也能正确转发
-    location /my-mbti/_next/ {
-        proxy_pass http://127.0.0.1:3000/my-mbti/_next/;
     }
 }
 ```
