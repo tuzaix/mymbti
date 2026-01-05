@@ -89,10 +89,10 @@ sudo systemctl reload nginx
 
 ## 5. 验证部署
 
-- **访问根路径**：访问 `http://<Your-IP>/`，应看到文字：`i love you baby!`
-- **访问测试应用**：访问 `http://<Your-IP>/my-mbti/`，应能看到 MBTI 测试页面。
+- **访问应用**：访问 `http://<Your-IP>/`，应能看到 MBTI 测试页面。
 
 ## 6. 常见问题
 
-- **404 错误**：如果访问 `/my-mbti` 返回 404，请检查 `next.config.mjs` 中的 `basePath` 是否确实设置为 `/my-mbti`。
+- **404 错误**：如果访问返回 404，请检查 Nginx 配置中的 `proxy_pass` 是否指向正确的端口（默认 3000）。
+- **静态文件无法访问**：确保 `public` 目录下的 `.md` 文件已正确上传。
 - **端口冲突**：如果 3000 端口已被占用，可以在启动时指定端口：`PORT=3001 pm2 start npm --name "mbti-test" -- start`，并同步修改 Nginx 中的 `proxy_pass`。

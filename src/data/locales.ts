@@ -27,6 +27,9 @@ export const locales = {
     featureComingSoon: "功能开发中...",
     navTypes: "性格类型",
     navContact: "联系我们",
+    aboutUs: "关于我们",
+    contactUs: "联系我们",
+    privacyPolicy: "隐私政策",
     features: {
       fast: { title: '快速', desc: '测试通常只需不到 10 分钟。' },
       honest: { title: '诚实', desc: '请诚实回答（即使你不喜欢这个答案）。' },
@@ -67,6 +70,9 @@ export const locales = {
     featureComingSoon: "Feature coming soon...",
     navTypes: "Types",
     navContact: "Contact",
+    aboutUs: "About Us",
+    contactUs: "Contact Us",
+    privacyPolicy: "Privacy Policy",
     features: {
       fast: { title: 'Fast', desc: 'The test usually takes less than 10 minutes.' },
       honest: { title: 'Honest', desc: 'Please answer honestly (even if you don\'t like the answer).' },
@@ -107,6 +113,9 @@ export const locales = {
     featureComingSoon: "Función próximamente...",
     navTypes: "Tipos",
     navContact: "Contacto",
+    aboutUs: "Sobre nosotros",
+    contactUs: "Contáctenos",
+    privacyPolicy: "Política de privacidad",
     features: {
       fast: { title: 'Rápido', desc: 'El test suele durar menos de 10 minutos.' },
       honest: { title: 'Honesto', desc: 'Responde honestamente (aunque no te guste la respuesta).' },
@@ -147,6 +156,9 @@ export const locales = {
     featureComingSoon: "Fonctionnalité à venir...",
     navTypes: "Types",
     navContact: "Contact",
+    aboutUs: "À propos de nous",
+    contactUs: "Contactez-nous",
+    privacyPolicy: "Politique de confidentialité",
     features: {
       fast: { title: 'Rapide', desc: 'Le test prend généralement moins de 10 minutes.' },
       honest: { title: 'Honnête', desc: 'Répondez honnêtement (même si vous n\'aimez pas la réponse).' },
@@ -187,6 +199,9 @@ export const locales = {
     featureComingSoon: "सुविधा जल्द ही आ रही है...",
     navTypes: "प्रकार",
     navContact: "संपर्क",
+    aboutUs: "हमारे बारे में",
+    contactUs: "संपर्क करें",
+    privacyPolicy: "गोपनीयता नीति",
     features: {
       fast: { title: 'तेज', desc: 'परीक्षण में आमतौर पर 10 मिनट से कम समय लगता है।' },
       honest: { title: 'ईमानदार', desc: 'कृपया ईमानदारी से उत्तर दें (भले ही आपको उत्तर पसंद न हो)।' },
@@ -227,6 +242,9 @@ export const locales = {
     featureComingSoon: "Funktion folgt in Kürze...",
     navTypes: "Typen",
     navContact: "Kontakt",
+    aboutUs: "Über uns",
+    contactUs: "Kontaktieren Sie uns",
+    privacyPolicy: "Datenschutzrichtlinie",
     features: {
       fast: { title: 'Schnell', desc: 'Der Test dauert in der Regel weniger als 10 Minuten.' },
       honest: { title: 'Ehrlich', desc: 'Bitte antworte ehrlich (auch wenn dir die Antwort nicht gefällt).' },
@@ -307,6 +325,9 @@ export const locales = {
     featureComingSoon: "Funzionalità in arrivo...",
     navTypes: "Tipi",
     navContact: "Contatti",
+    aboutUs: "Chi siamo",
+    contactUs: "Contattaci",
+    privacyPolicy: "Informativa sulla privacy",
     features: {
       fast: { title: 'Veloce', desc: 'Il test richiede solitamente meno di 10 minuti.' },
       honest: { title: 'Onesto', desc: 'Rispondi onestamente (anche se non ti piace la risposta).' },
@@ -387,6 +408,9 @@ export const locales = {
     featureComingSoon: "Tính năng sắp ra mắt...",
     navTypes: "Kiểu tính cách",
     navContact: "Liên hệ",
+    aboutUs: "Về chúng tôi",
+    contactUs: "Liên hệ chúng tôi",
+    privacyPolicy: "Chính sách bảo mật",
     features: {
       fast: { title: 'Nhanh chóng', desc: 'Trắc nghiệm thường mất chưa đầy 10 phút.' },
       honest: { title: 'Trung thực', desc: 'Vui lòng trả lời trung thực (ngay cả khi bạn không thích câu trả lời).' },
@@ -492,6 +516,9 @@ export const locales = {
     featureComingSoon: "Feature na malapit na...",
     navTypes: "Mga Uri",
     navContact: "Kontak",
+    aboutUs: "Tungkol sa Amin",
+    contactUs: "Makipag-ugnayan sa Amin",
+    privacyPolicy: "Patakaran sa Privacy",
     features: {
       fast: { title: 'Mabilis', desc: 'Karaniwang tumatagal ang test ng mas mababa sa 10 minuto.' },
       honest: { title: 'Tapat', desc: 'Mangyaring sumagot nang tapat (kahit na hindi mo gusto ang sagot).' },
@@ -562,6 +589,9 @@ export const locales = {
     featureComingSoon: "Функция скоро появится...",
     navTypes: "Типы",
     navContact: "Контакты",
+    aboutUs: "О нас",
+    contactUs: "Связаться с нами",
+    privacyPolicy: "Политика конфиденциальности",
     features: {
       fast: { title: 'Быстро', desc: 'Тест обычно занимает менее 10 минут.' },
       honest: { title: 'Честно', desc: 'Пожалуйста, отвечайте честно (даже если вам не нравится ответ).' },
@@ -597,6 +627,9 @@ export const locales = {
     featureComingSoon: "یہ فیچر جلد آ رہا ہے...",
     navTypes: "اقسام",
     navContact: "رابطہ کریں",
+    aboutUs: "ہمارے بارے میں",
+    contactUs: "ہم سے رابطہ کریں",
+    privacyPolicy: "رازداری کی پالیسی",
     features: {
       fast: { title: 'تیز', desc: 'ٹیسٹ میں عام طور پر 10 منٹ سے بھی کم وقت لگتا ہے۔' },
       honest: { title: 'ایماندار', desc: 'براہ کرم ایمانداری سے جواب دیں (چاہے آپ کو جواب پسند نہ آئے)۔' },

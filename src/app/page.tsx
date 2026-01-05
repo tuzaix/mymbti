@@ -189,8 +189,13 @@ export default function Home() {
             <div className="w-8 h-8 bg-agree rounded-lg flex items-center justify-center text-white font-bold">M</div>
             <span className="font-black text-xl tracking-tighter">{t.title}</span>
           </div>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8 text-sm font-medium text-gray-400">
+            <a href="/about" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.aboutUs}</a>
+            <a href="/contact" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.contactUs}</a>
+            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t.privacyPolicy}</a>
+          </div>
           <p className="text-gray-400 text-sm">
-            © 2025 MBTI Test Center. All rights reserved.
+            {t.footer}
           </p>
         </div>
       </footer>
